@@ -1,41 +1,114 @@
-# README
+# Universal Machine Virtual Machine (Rust)
 
-## Name
-Andres Henao  
+A virtual machine implemented in Rust for CSC 411 (Computer Organization) at the University of Rhode Island.
 
-## Partner
-Sean Dumont
-
+This project implements the Universal Machine (UM) architecture, including segmented memory management, instruction decoding, and execution of machine programs. The system is capable of loading and executing UM binaries while efficiently managing dynamic memory segments and program state.
 
 ---
 
 ## Overview
-This assignment focused on improving the performance of a Universal Machine (UM) implementation using profiling and iterative optimization techniques. The goal was to identify bottlenecks and improve execution time, particularly on the large `sandmark` benchmark.
+
+The Universal Machine is a low-level virtual machine designed to execute a custom instruction set architecture. This project involved building the machine from the ground up, including instruction execution, segmented memory management, input/output operations, and program loading.
+
+A significant focus of the project was performance optimization through profiling and iterative improvements, resulting in substantial execution time reductions on benchmark programs.
 
 ---
 
-## Most Expensive Routine
-The most expensive routine in the final program is the main execution loop of the Universal Machine, where instructions are repeatedly fetched, decoded, and executed.
+## Technologies
+
+- Rust
+- Cargo
+- Systems Programming
+- Virtual Machine Architecture
+- Memory Management
+- Performance Optimization
+- Git & GitHub
 
 ---
 
-## Assembly Analysis
-Examining the compiled assembly code of the execution loop shows frequent memory accesses, register operations, and branching for instruction decoding and execution.
+## Features
 
-Many values are already kept in registers, and the compiler applies optimizations such as inlining and instruction scheduling. There are no obvious manual improvements that could be made directly at the assembly level without changing the overall program structure.
+### Instruction Execution
 
-Further performance gains would likely come from reducing memory accesses or improving data representation rather than modifying assembly code directly.
+Implemented support for:
+
+- Conditional Move
+- Segmented Load
+- Segmented Store
+- Addition
+- Multiplication
+- Division
+- NAND
+- Halt
+- Map Segment
+- Unmap Segment
+- Output
+- Input
+- Load Program
+- Orthography
+
+### Memory Management
+
+- Dynamic segmented memory allocation
+- Segment reuse and efficient memory handling
+- Program loading and execution support
+- Safe memory operations using Rust
+
+### Performance Optimization
+
+- Profiled execution bottlenecks
+- Reduced unnecessary memory operations
+- Improved instruction execution efficiency
+- Optimized benchmark performance on large UM programs
 
 ---
 
-## Performance Summary
-- Baseline sandmark: 7.844s  
-- Final sandmark (LTO enabled): ~5.0s  
+## Project Structure
 
-This represents a significant performance improvement on the large benchmark.
+```text
+src/
+├── main.rs
+├── memory.rs
+├── instruction_process.rs
+├── math_core.rs
+├── input_output.rs
+├── rumload.rs
+└── lib.rs
+
+Cargo.toml
+README.md
+```
 
 ---
 
-## Hours Spent
-- Analysis: ~3 hours  
-- Implementation: ~4 hours
+## Benchmark Results
+
+The virtual machine was tested using benchmark programs including:
+
+- midmark.um
+- sandmark.umz
+
+Performance improvements were achieved through optimization of instruction execution and memory access patterns.
+
+---
+
+## Learning Outcomes
+
+Through this project, I gained experience with:
+
+- Systems programming in Rust
+- Virtual machine implementation
+- Instruction set architecture design
+- Memory management techniques
+- Performance profiling and optimization
+- Debugging complex software systems
+- Version control using Git and GitHub
+
+---
+
+## Author
+
+**Andres Henao**
+
+University of Rhode Island  
+Bachelor of Science in Computer Science
